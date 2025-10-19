@@ -19,13 +19,16 @@ VALUES
 `;
 
 async function main() {
-  const roleName = process.env.USER_NAME;
-  const rolePassword = process.env.USER_PASSWORD;
+  let connectionString = process.argv[2];
+  if (!connectionString) {
+    const localDatabaseUrl = `postgresql://${process.env.USER_NAME}:${process.env.USER_PASSWORD}@localhost:5432/top_users`;
+
+    console.error("Database URL not provided. Defaulting to local database");
+    connectionString = localDatabaseUrl;
+  }
 
   console.log("seeding...");
-  const client = new Client({
-    connectionString: `postgresql://${roleName}:${rolePassword}@localhost:5432/top_users`,
-  });
+  const client = new Client({ connectionString: connectionString });
   await client.connect();
   await client.query(SQL);
   await client.end();
