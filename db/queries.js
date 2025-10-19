@@ -6,7 +6,7 @@ async function getAllUsernames() {
 }
 
 async function insertUsername(username) {
-  // `$1` insersts username into query indirectly, through pg's query-parametisation. this prevents sql injections.
+  // `$1` inserts username into query indirectly, through pg's query-parametisation. this prevents sql injections.
   await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
 }
 
