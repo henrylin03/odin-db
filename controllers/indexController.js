@@ -1,17 +1,25 @@
 const path = require("path");
+const db = require("../db/queries");
 
-exports.home = (req, res) => {
-  console.log("usernames will be logged here - wip");
-  res.end();
-};
+async function getUsernames(req, res) {
+  const usernames = await db.getAllUsernames();
+  console.log("Usernames:", usernames);
+  res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
+}
 
-exports.showForm = (req, res) => {
+async function createUsernameGet(req, res) {
   const htmlFormFilePath = path.join(__dirname, "../public/form.html");
   res.sendFile(htmlFormFilePath);
-};
+}
 
-exports.createUser = (req, res) => {
-  const username = req.body.username;
-  console.log("username to be saved: ", req.body.username);
-  res.end();
+async function createUsernamePost(req, res) {
+  const { username } = req.body;
+  await db.insertUsername(username);
+  res.redirect("/");
+}
+
+module.exports = {
+  getUsernames,
+  createUsernameGet,
+  createUsernamePost,
 };
