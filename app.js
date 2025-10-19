@@ -17,6 +17,11 @@ app.get("/new", (req, res) => {
   res.sendFile("form.html", options);
 });
 
+app.post("/new", (req, res) => {
+  console.log("username to be saved: ", req.body.username);
+  res.end();
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Express app is listening on port ${PORT}`);
