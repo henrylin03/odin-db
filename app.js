@@ -1,12 +1,12 @@
 const express = require("express");
 const path = require("path");
-
 const app = express();
 
 const basePath = path.join(__dirname);
 const options = { root: basePath };
 
 app.use(express.static(basePath));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   console.log("usernames will be logged here - wip");
