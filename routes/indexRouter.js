@@ -3,8 +3,8 @@ const indexController = require("../controllers/indexController");
 
 const indexRouter = Router();
 
-indexRouter.get("/", indexController.home);
-indexRouter.get("/new", indexController.showForm);
-indexRouter.post("/new", indexController.createUser);
+indexRouter.get("/", indexController.getUsernames);
+indexRouter.get("/new", indexController.createUsernameGet);
+indexRouter.post("/new", indexController.createUsernamePost);
 
 module.exports = indexRouter;
