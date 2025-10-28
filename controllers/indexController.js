@@ -1,15 +1,14 @@
 const path = require("path");
 const db = require("../db/queries");
 
-async function getUsernames(req, res) {
+async function getUsernames(_req, res) {
   const usernames = await db.getAllUsernames();
   console.log("Usernames:", usernames);
-  res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
+  res.render("index", { title: "Users", usernames });
 }
 
-async function createUsernameGet(req, res) {
-  const htmlFormFilePath = path.join(__dirname, "../public/form.html");
-  res.sendFile(htmlFormFilePath);
+async function createUsernameGet(_req, res) {
+  res.render("form", { title: "Add new user" });
 }
 
 async function createUsernamePost(req, res) {
