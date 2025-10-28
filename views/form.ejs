@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container inner">
+        <article>
+          <form method="POST" action="/new">
+            <ul>
+              <li>
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  required
+                  placeholder="Enter your username"
+                />
+              </li>
+              <li><button type="submit">Submit</button></li>
+            </ul>
+          </form>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
