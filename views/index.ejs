@@ -20,8 +20,10 @@
           aria-label="Search usernames"
         />
       </section>
-      <section class="container">
-        <% if (usernames) { %> <% usernames.forEach(username => { %>
+      <section>
+        <% if (usernames) { %>
+        <h2>Users</h2>
+        <% usernames.forEach(username => { %>
         <article><%= username.username %></article>
         <% }) %>
         <% } %>
