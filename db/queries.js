@@ -7,10 +7,9 @@ async function getAllUsernames() {
 
 async function getUsernames(searchText) {
   const { rows } = await pool.query(
-    "SELECT * FROM usernames WHERE username LIKE %$1%",
-    [searchText],
+    "SELECT * FROM usernames WHERE LOWER(username) LIKE LOWER($1)",
+    [`%${searchText}%`],
   );
-  console.log("filtered users:", rows);
   return rows;
 }
 
