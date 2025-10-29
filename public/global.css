@@ -18,3 +18,7 @@ ul li {
   align-items: center;
   justify-content: space-between;
 }
+
+.fullwidth-button {
+  width: 100%;
+}
