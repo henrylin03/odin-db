@@ -15,6 +15,7 @@ async function getUsernames(req, res) {
       title: "Search results",
       usernames: searchedUsernames,
       isFiltered,
+      searchbarValue,
     });
   }
 }
