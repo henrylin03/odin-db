@@ -1,10 +1,18 @@
-const path = require("path");
 const db = require("../db/queries");
 
-async function getUsernames(_req, res) {
-  const usernames = await db.getAllUsernames();
-  console.log("Usernames:", usernames);
-  res.render("index", { title: "Users", usernames });
+async function getUsernames(req, res) {
+  const searchbarValue = req.query.search;
+
+  if (searchbarValue === "" || searchbarValue === undefined) {
+    const usernames = await db.getAllUsernames();
+    res.render("index", { title: "Users", usernames });
+  } else {
+    const searchedUsernames = await db.getUsernames(searchbarValue);
+    res.render("index", {
+      title: "Search results",
+      usernames: searchedUsernames,
+    });
+  }
 }
 
 async function createUsernameGet(_req, res) {
