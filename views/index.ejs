@@ -12,14 +12,16 @@
   </head>
   <body>
     <main class="container inner">
-      <section>
-        <input
-          type="search"
-          name="search"
-          placeholder="Search usernames"
-          aria-label="Search usernames"
-        />
-      </section>
+      <form>
+        <fieldset role="group">
+          <input
+            type="text"
+            placeholder="Search usernames"
+            aria-label="Search usernames"
+          />
+          <button type="submit">Search</button>
+        </fieldset>
+      </form>
       <section>
         <% if (usernames) { %>
         <h2>Users</h2>
