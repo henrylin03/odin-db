@@ -1,37 +1,42 @@
 {
-  "name": "odin-db",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "dev": "node --watch app.js",
-    "prepare": "husky"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/henrylin03/odin-db.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/henrylin03/odin-db/issues"
-  },
-  "homepage": "https://github.com/henrylin03/odin-db#readme",
-  "dependencies": {
-    "dotenv": "^17.2.3",
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "pg": "^8.16.3"
-  },
-  "devDependencies": {
-    "husky": "^9.1.7",
-    "lint-staged": "^16.1.6",
-    "prettier": "^3.6.2",
-    "prettier-plugin-ejs": "^1.0.3"
-  }
+	"name": "odin-db",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"dev": "node --watch app.js",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"*.{js,cjs,mjs,mts,json,jsonc, ejs, css}": [
+			"biome check --write --unsafe --no-errors-on-unmatched",
+			"biome format --write --no-errors-on-unmatched",
+			"biome lint --write --no-errors-on-unmatched"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/henrylin03/odin-db.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/henrylin03/odin-db/issues"
+	},
+	"homepage": "https://github.com/henrylin03/odin-db#readme",
+	"dependencies": {
+		"dotenv": "^17.2.3",
+		"ejs": "^3.1.10",
+		"express": "^5.1.0",
+		"pg": "^8.16.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.2",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.1.6",
+		"prettier": "^3.6.2",
+		"prettier-plugin-ejs": "^1.0.3"
+	}
 }
