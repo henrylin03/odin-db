@@ -6,5 +6,6 @@ const indexRouter = Router();
 indexRouter.get("/", indexController.getUsernames);
 indexRouter.get("/new", indexController.createUsernameGet);
 indexRouter.post("/new", indexController.createUsernamePost);
+indexRouter.get("/delete", indexController.deleteAllUsernames);
 
 module.exports = indexRouter;

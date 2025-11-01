@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+    />
   </head>
   <body>
     <main class="container inner">
@@ -28,9 +32,14 @@
         <% if (usernames) { %>
         <section class="heading-wrapper">
           <h1><%= title %></h1>
-          <a href="/new" aria-label="Add new user"
-            ><button type="button" class="outline">Add new user</button></a
+          <% if (!isFiltered) { %>
+          <a
+            href="/delete"
+            aria-label="Delete all usernames"
+            class="pico-color-red-500 link"
+            >Clear users</a
           >
+          <% } %>
         </section>
         <% usernames.forEach(username => { %>
         <article><%= username.username %></article>
@@ -38,14 +47,20 @@
         <% } %>
       </section>
     </main>
-    <% if (isFiltered) { %>
     <footer class="container inner">
-      <a href="/" aria-label="See all usernames"
-        ><button type="button" class="outline secondary fullwidth-button">
-          Show all users
-        </button></a
-      >
+      <div class="stack">
+        <% if (isFiltered) { %>
+        <a href="/" aria-label="See all usernames" class="contrast"
+          >Show all users</a
+        >
+        <% } %>
+        <a href="/new" aria-label="Add new user"
+          ><input
+            type="button"
+            class="outline fullwidth-button"
+            value="Add new user"
+        /></a>
+      </div>
     </footer>
-    <% } %>
   </body>
 </html>
