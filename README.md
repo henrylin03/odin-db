@@ -1,6 +1,24 @@
-# odin-db
+# Usernames Database
 
-This is to practice setting up PostgreSQL database with ExpressJS app.
+Full-stack CRUD application to store usernames. Also includes search functionalities.
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%">
+    <img src="./public/screenshots/homepage.png" />
+    <img src="./public/screenshots/search-results.png" />
+</div>
+
+<br />
+
+- **_Why:_** This project is part of The Odin Project's "NodeJS Course", as the assignment of the ["Using PostgreSQL" lesson](https://www.theodinproject.com/lessons/nodejs-using-postgresql) to practice setting up a PostgreSQL database within an Express JS application.
+- **_Tech:_** Express JS backend, PostgreSQL database, [EJS (Embedded JavaScript templates)](https://ejs.co/) views, and [PicoCSS](https://picocss.com/) styling (UI library).
+
+## How to run app
+
+To start Express JS app, run:
+
+```bash
+npm run dev
+```
 
 ## How to set up local and populate DB
 
