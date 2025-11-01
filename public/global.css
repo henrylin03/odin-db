@@ -29,3 +29,7 @@ ul li {
   align-items: center;
   gap: 1.5rem;
 }
+
+.link {
+  text-decoration-color: inherit;
+}

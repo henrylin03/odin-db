@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+    />
   </head>
   <body>
     <main class="container inner">
@@ -28,6 +32,14 @@
         <% if (usernames) { %>
         <section class="heading-wrapper">
           <h1><%= title %></h1>
+          <% if (!isFiltered) { %>
+          <a
+            href="/delete"
+            aria-label="Delete all usernames"
+            class="pico-color-red-500 link"
+            >Clear users</a
+          >
+          <% } %>
         </section>
         <% usernames.forEach(username => { %>
         <article><%= username.username %></article>
